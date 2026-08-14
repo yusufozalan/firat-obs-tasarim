@@ -1,0 +1,133 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+body { min-height: 100vh; overflow: hidden; background: #f4f6f9; }
+
+/* Split Screen Container */
+.split-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Sol Panel (Giriş Kartının Arkasındaki Büyük Alan) */
+.left-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: #f1f5f9; 
+    z-index: 2;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.03);
+}
+
+/* Sağ Panel (Dönen Logonun Olduğu Alan) */
+.right-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e2e8f0; 
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animasyonlu Logo */
+.animated-logo-container {
+    width: 60%;
+    animation: fadeIn 1s ease-out;
+}
+
+.bg-logo-large {
+    width: 100%;
+    opacity: 0.2;
+    filter: grayscale(1);
+    animation: rotateLogo 60s linear infinite;
+}
+
+@keyframes rotateLogo {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* Giriş Kartı (Sol panelin ortasında duran kart) */
+.login-card {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    background: #fafafa; 
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04); 
+    
+    border: 3px solid #701036; 
+}
+
+
+/* Dil Değiştirme Butonu */
+.lang-switch {
+    position: absolute; top: 2rem; left: 2rem;
+    background: #edf2f7; 
+    border: 1px solid #cbd5e1;
+    padding: 0.5rem 1rem; border-radius: 20px;
+    cursor: pointer;
+}
+
+.lang-switch:hover {
+    background: #f1f5f9;
+    color: #701036;
+    border-color: #701036;
+}
+
+.logo-container { margin-bottom: 1.5rem; }
+.univ-logo-img { width: 80px; }
+.univ-title { font-size: 1.4rem; color: #1e293b; }
+.sys-subtitle { font-size: 0.9rem; color: #64748b; margin-bottom: 2rem; }
+.divider { height: 1px; background: #e2e8f0; margin-bottom: 1.5rem; }
+.scope-text { font-size: 0.75rem; color: #94a3b8; margin-bottom: 1.5rem; text-transform: uppercase; }
+
+.button-group { display: flex; flex-direction: column; gap: 0.8rem; }
+.login-btn {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem; background: #f8fafc; border: 1px solid #e2e8f0;
+    border-radius: 12px; text-decoration: none; color: #334155;
+    transition: all 0.2s;
+}
+
+
+.login-btn:hover { 
+    background: #fff; 
+    border-color: #701036; 
+    color: #701036; 
+    transform: translateY(-2px); 
+}
+
+.footer-text { margin-top: 2rem; font-size: 0.75rem; color: #94a3b8; }
+
+
+/* Mobil Cihazlar İçin Uyumluluk Ayarı (Ekran genişliği 768px ve altı ise) */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column; 
+        overflow-y: auto;       
+    }
+
+    .left-panel {
+        padding: 1.5rem;
+        min-height: 100vh;      
+    }
+
+    .right-panel {
+        display: none;          
+    }
+    
+    .lang-switch {
+        top: 1rem; left: 1rem; 
+    }
+}
