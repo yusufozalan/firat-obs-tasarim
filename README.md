@@ -1,0 +1,1 @@
+# firat-obs-tasarim
